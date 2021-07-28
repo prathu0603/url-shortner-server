@@ -46,7 +46,7 @@ router.route("/signup").post(async (request, response) => {
       subject: `Signup Successful`,
       html: `
       <h1>Welcome, ${user.name} ${user.surname} To Dark Services</h1>
-      <h5>Click on <a href="http://localhost:5000/api/url/verify?token=${token}">Link</a> , To Activate Account.</h5>
+      <h5>Click on <a href="https://url-shortner-server-1.herokuapp.com/api/url/verify?token=${token}">Link</a> , To Activate Account.</h5>
       <p>Doing The Above Step Help US :)</p>
       `,
     });
@@ -101,7 +101,7 @@ router.route("/verify").get(async (request, response) => {
     if (token) {
       const { id } = jwt.verify(token, process.env.SECRET_KEY);
       await User.updateOne({ _id: id }, { confirm: true });
-      response.redirect("http://localhost:3000/signin");
+      response.redirect("https://url-shortner-client.netlify.app/signin");
     } else {
       response.status(401).json({ message: "Invalid Token" });
     }
@@ -132,7 +132,7 @@ router.route("/reset").post(async (request, response) => {
       subject: `To Reset Password`,
       html: `
                   <p>You Requested For Password Reset</p>
-                  <h5>Click on <a href="http://localhost:3000/password-reset/${token}">Link</a> , to RESET Password.</h5>
+                  <h5>Click on <a href="https://url-shortner-client.netlify.app/password-reset/${token}">Link</a> , to RESET Password.</h5>
                 `,
     });
     response.status(200).json({ message: "Email Send." });
