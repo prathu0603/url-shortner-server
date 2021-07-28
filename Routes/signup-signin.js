@@ -75,8 +75,8 @@ router.route("/signin").post(async (request, response) => {
       response.cookie("jwtToken", genToken, {
         sameSite: "strict",
         expires: new Date(new Date().getTime() + 3600 * 1000),
-        httpOnly: false,
-        secure: true
+//         httpOnly: false,
+//         secure: true
       });
       let idNo = findUser._id;
       console.log(idNo);
