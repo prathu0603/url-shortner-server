@@ -76,6 +76,7 @@ router.route("/signin").post(async (request, response) => {
         sameSite: "strict",
         expires: new Date(new Date().getTime() + 3600 * 1000),
         httpOnly: false,
+        secure: true
       });
       let idNo = findUser._id;
       console.log(idNo);
@@ -83,6 +84,7 @@ router.route("/signin").post(async (request, response) => {
         sameSite: "strict",
         expires: new Date(new Date().getTime() + 3600 * 1000),
         httpOnly: false,
+        secure: true
       });
       return response.status(200).json({ message: "Signin Success !" });
     } else {
