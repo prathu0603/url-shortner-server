@@ -15,7 +15,7 @@ con.on("open", () => console.log("MongoDB is connected"));
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(csurf({ cookie: true }));
+// app.use(csurf({ cookie: true }));
 app.use(cors({ origin: true, credentials: true }));
 
 app.use("/api/url", require("./Routes/urlShortener.js"));
