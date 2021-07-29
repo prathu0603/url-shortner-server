@@ -79,15 +79,15 @@ router.route("/signin").post(async (request, response) => {
         httpOnly: true,
         secure: true
       });
-      let idNo = findUser._id;
-      console.log(idNo);
-      response.cookie("id", idNo, {
+//       let idNo = findUser._id;
+//       console.log(idNo);
+//       response.cookie("id", idNo, {
         
-        expires: new Date(new Date().getTime() + 3600 * 1000),
-        sameSite: "none",
-        httpOnly: true,
-        secure: true
-      });
+//         expires: new Date(new Date().getTime() + 3600 * 1000),
+//         sameSite: "none",
+//         httpOnly: true,
+//         secure: true
+//       });
       return response.status(200).json({ message: "Signin Success !" });
     } else {
       return response.status(401).send({ message: "Invalid credentials" });
