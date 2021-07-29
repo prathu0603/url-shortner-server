@@ -73,17 +73,19 @@ router.route("/signin").post(async (request, response) => {
       console.log(findUser._id);
       const genToken = jwt.sign({ id: findUser._id }, process.env.SECRET_KEY);
       response.cookie("jwtToken", genToken, {
-        sameSite: "none",
+        
         expires: new Date(new Date().getTime() + 3600 * 1000),
-        httpOnly: false,
+        sameSite: "none",
+        httpOnly: true,
         secure: true
       });
       let idNo = findUser._id;
       console.log(idNo);
       response.cookie("id", idNo, {
-        sameSite: "none",
+        
         expires: new Date(new Date().getTime() + 3600 * 1000),
-        httpOnly: false,
+        sameSite: "none",
+        httpOnly: true,
         secure: true
       });
       return response.status(200).json({ message: "Signin Success !" });
