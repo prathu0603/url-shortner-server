@@ -8,12 +8,22 @@ const User = require("../Models/urlSchema.js");
 const { request, response } = require("express");
 
 const transport = nodemailer.createTransport({
-  host: "in-v3.mailjet.com",
-  port: 587,
+  
+  
+//   host: "in-v3.mailjet.com",
+//   port: 587,
+//   auth: {
+//     user: process.env.MAIL_USERNAME,
+//     pass: process.env.MAIL_PASSWORD,
+//   },
+  
+  service: "gmail",
   auth: {
-    user: process.env.MAIL_USERNAME,
-    pass: process.env.MAIL_PASSWORD,
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
   },
+  
+  
 });
 
 const router = express.Router();
