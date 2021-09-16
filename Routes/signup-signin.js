@@ -10,18 +10,14 @@ const { request, response } = require("express");
 const transport = nodemailer.createTransport({
   
   
-//   host: "in-v3.mailjet.com",
-//   port: 587,
-//   auth: {
-//     user: process.env.MAIL_USERNAME,
-//     pass: process.env.MAIL_PASSWORD,
-//   },
-  
-  service: "gmail",
+  host: "in-v3.mailjet.com",
+  port: 587,
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSWORD,
   },
+  
+
   
   
 });
